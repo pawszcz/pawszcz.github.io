@@ -111,7 +111,7 @@ let AppComponent = class AppComponent {
     }
     getExchangeratesRates() {
         this.http
-            .get("http://api.nbp.pl/api/exchangerates/tables/A")
+            .get("https://api.nbp.pl/api/exchangerates/tables/A")
             .subscribe(res => (this.exchangeratesRates = [
             { currency: "złoty polski", code: "PLN", mid: 1 },
             ...res[0].rates
@@ -177,6 +177,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["enableProdMode"])();
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

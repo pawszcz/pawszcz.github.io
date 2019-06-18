@@ -115,7 +115,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.getExchangeratesRates = function () {
         var _this = this;
         this.http
-            .get("http://api.nbp.pl/api/exchangerates/tables/A")
+            .get("https://api.nbp.pl/api/exchangerates/tables/A")
             .subscribe(function (res) {
             return (_this.exchangeratesRates = tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"]([
                 { currency: "złoty polski", code: "PLN", mid: 1 }
@@ -183,6 +183,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["enableProdMode"])();
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
