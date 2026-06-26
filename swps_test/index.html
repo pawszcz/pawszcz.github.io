@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interaktywny quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section id="startScreen" class="card">
+      <h1>Interaktywny quiz</h1>
+      <p class="muted">Quiz zapisuje pytania do powtórki w pamięci przeglądarki. Trafiają tam pytania błędne oraz te, które ręcznie oznaczysz po sprawdzeniu.</p>
+
+      <div class="settings">
+        <label class="checkbox-row">
+          <input id="shuffleQuestions" type="checkbox" checked />
+          Losuj kolejność pytań
+        </label>
+        <label class="checkbox-row">
+          <input id="shuffleAnswers" type="checkbox" />
+          Losuj kolejność odpowiedzi
+        </label>
+      </div>
+
+      <div class="actions start-actions">
+        <button id="startBtn" class="primary">Rozpocznij pełny test</button>
+        <button id="startReviewBtn" class="secondary" type="button">Rozpocznij test z pytań do powtórki</button>
+      </div>
+
+      <p id="questionCount" class="small"></p>
+      <p id="reviewCountStart" class="small"></p>
+    </section>
+
+    <section id="quizScreen" class="card hidden" aria-live="polite">
+      <div class="topbar">
+        <div>
+          <div id="questionProgress" class="progress-text"></div>
+          <div id="questionSource" class="source"></div>
+        </div>
+        <div id="scoreBox" class="score"></div>
+      </div>
+
+      <div class="progress-track" aria-hidden="true">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+
+      <h2 id="questionText" class="question"></h2>
+      <div id="answers" class="answers"></div>
+
+      <div id="feedback" class="feedback hidden"></div>
+
+      <div class="actions">
+        <button id="checkBtn" class="primary" disabled>Sprawdź</button>
+        <button id="nextBtn" class="secondary hidden">Następne pytanie</button>
+        <button id="saveReviewBtn" class="secondary hidden" type="button">Zapisz do powtórki</button>
+        <button id="toggleReviewBtn" class="secondary" type="button">Pytania do powtórki: 0</button>
+      </div>
+
+      <aside id="reviewPanel" class="review-panel hidden">
+        <div class="review-panel-header">
+          <h3>Pytania do powtórki</h3>
+          <div class="review-panel-actions">
+            <button id="downloadReviewLiveBtn" class="ghost" type="button">Pobierz</button>
+            <button id="closeReviewPanelBtn" class="ghost" type="button">Zamknij</button>
+          </div>
+        </div>
+        <div id="reviewLive" class="review-summary live-review-summary"></div>
+      </aside>
+    </section>
+
+    <section id="resultScreen" class="card hidden result">
+      <h1>Wynik końcowy</h1>
+      <p id="finalScore" class="final-score"></p>
+      <p id="finalPercent" class="muted"></p>
+      <div id="reviewSummary" class="review-summary"></div>
+      <div class="result-actions">
+        <button id="downloadReviewFinalBtn" class="secondary" type="button">Pobierz pytania do powtórki</button>
+        <button id="startReviewFromResultBtn" class="secondary" type="button">Test tylko z powtórek</button>
+        <button id="restartBtn" class="primary">Nowy pełny test</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="quiz-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
